@@ -5,7 +5,7 @@ setup(
     name = 'django-staticblog',
     version = staticblog.__version__,
     packages = find_packages(),
-    requires = 'markdown',
+    requires = ['markdown', 'html2text'],
     author = 'Chris Grice',
     author_email = 'chris@chrisgrice.com',
     license = 'MIT',
