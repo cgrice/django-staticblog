@@ -104,7 +104,7 @@ class Command(BaseCommand):
             compiled_post['html_name'] = compiled_post['path'] + '/index.html'
             if new:
                 try:
-                    with open(outdir + compiled_post['html_name'], 'r') as f: 
+                    with open(STATICBLOG_COMPILE_DIRECTORY + compiled_post['html_name'], 'r') as f: 
                         return False
                 except IOError as e:
                     return compiled_post
