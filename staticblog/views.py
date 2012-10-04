@@ -1,29 +1,28 @@
-# Create your views here.
+# Django imports
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-#from django.conf import settings
 from django.core.files.storage import get_storage_class
 from django.core.files.base import ContentFile
 
 def render_response(req, *args, **kwargs):
-    """Wrap request in RequestContext"""
+    """Shortcut to wrap request in RequestContext"""
     kwargs['context_instance'] = RequestContext(req)
     return render_to_response(*args, **kwargs)
 
-import os, sys
-import markdown
+# stdlib
+import os
+import sys
 import urllib2
 import hashlib
+
+# 3rd party
+import markdown
 from markdown.inlinepatterns import ImagePattern, IMAGE_LINK_RE
 
+# app
 from staticblog.app_settings import STATICBLOG_COMPILE_DIRECTORY, \
                                     STATICBLOG_POST_DIRECTORY, \
                                     STATICBLOG_STORAGE
-
-BUCKET_NAME = 'cg-static'
-AWS_ACCESS_KEY_ID = 'AKIAIUPGXQPJFDJNUKLA'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_QUERYSTRING_AUTH = False
 
 class S3ImagePattern(ImagePattern):
     """ Wrapper class to handle image matches in markdown document """
