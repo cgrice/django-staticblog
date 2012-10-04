@@ -1,6 +1,8 @@
 from setuptools import setup, find_packages
 import staticblog
 
+print find_packages()
+
 setup(
     name = 'django-staticblog',
     version = staticblog.__version__,
@@ -11,7 +13,6 @@ setup(
     license = 'MIT',
     description = 'Markdown-based blog engine that compiles to static html pages',
     url='http://github.com/cgrice/django-staticblog/',
-    package_data = { 'django-staticblog': ['templates/*'] },
     classifiers = [
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
@@ -22,4 +23,7 @@ setup(
         'Framework :: Django',
     ],
     zip_safe = False,
+    package_data = { 'staticblog' : ['templates/*.html',
+                    'templates/staticblog/*.html']},
+    include_package_data = True,
 )
