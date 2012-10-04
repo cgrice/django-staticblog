@@ -23,7 +23,6 @@ setup(
         'Framework :: Django',
     ],
     zip_safe = False,
-    package_data = { 'staticblog' : ['templates/*.html',
-                    'templates/staticblog/*.html']},
+    package_data = { 'staticblog' : ['templates/staticblog/*.html']},
     include_package_data = True,
 )
