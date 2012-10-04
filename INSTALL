@@ -1,0 +1,5 @@
+Thanks for downloading django-staticblog
+
+To install it, run the following command within this directory:
+
+    python setup.py install
