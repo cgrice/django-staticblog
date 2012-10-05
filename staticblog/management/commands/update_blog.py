@@ -25,25 +25,32 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **options):
+        verbosity = int(options.get('verbosity'))
+
         client = Client()
         outdir = STATICBLOG_COMPILE_DIRECTORY
         posts = []
         previews = []
         
+        
         if options['all']:
-            print 'Compiling all blog posts'
+            if verbosity > 3:
+                print 'Compiling all blog posts'
             posts = self._get_all_posts()
         elif options['post_name']:
             posts = self._get_named_posts(options['post_name'])
         else:
-            print 'Compiling new blog posts'
+            if verbosity > 3:
+                print 'Compiling new blog posts'
             posts = self._get_all_posts(new = True)
 
-        print '%d posts found' % len(posts)
-        print '----------------------------'
+        if verbosity > 3:
+            print '%d posts found' % len(posts)
+            print '----------------------------'
 
         for post in posts:  
-            print "Compiling " + post['md_name'] + " to " + post['html_name']
+            if verbosity > 3:
+                print "Compiling " + post['md_name'] + " to " + post['html_name']
             path = '/preview/' + post['path']
             resp = client.get(path)
             if os.path.exists(outdir + post['path']) == False:
@@ -56,18 +63,20 @@ class Command(BaseCommand):
             with open(outdir + post['html_name'], 'w') as f:
                 f.write(resp.content) 
 
-        if len(posts) > 0:
+        if len(posts) > 0 and verbosity > 3:
             print '----------------------------'
 
-        print 'Updating listings...'
-        print '----------------------------'
+        if verbosity > 3:
+            print 'Updating listings...'
+            print '----------------------------'
         path = '/preview/'
         resp = client.get(path)
 
         with open(STATICBLOG_COMPILE_DIRECTORY + 'index.html', 'w') as f:
             f.write(resp.content) 
-        
-        print 'Done'
+    
+        if verbosity > 3:    
+            print 'Done'
 
 
     def _get_all_posts(self, new = False):    
