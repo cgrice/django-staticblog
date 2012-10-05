@@ -15,11 +15,11 @@ django-staticblog requires:
 Installation
 ----
 
-pip install django-staticblog
+`pip install django-staticblog`
 
 or
 
-python setup.py install 
+`python setup.py install `
 
 after checking out the code from http://github.com/cgrice/django-staticblog
 
