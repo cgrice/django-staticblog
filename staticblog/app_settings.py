@@ -18,5 +18,5 @@ STATICBLOG_COMPILE_DIRECTORY = getattr(
 STATICBLOG_STORAGE = getattr(
     settings, 
     'STATICBLOG_STORAGE', 
-    'django.core.files.storage.FileSystemStorage'
+    settings.DEFAULT_FILE_STORAGE
 )
