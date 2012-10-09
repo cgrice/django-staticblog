@@ -90,4 +90,4 @@ Templates
 
  * `posts` : a list of `post` dicts as defined in `post.html` above
 
-
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d318d6c7b4d035273dd387ed91064a82 "githalytics.com")](http://githalytics.com/cgrice/django-staticblog)
