@@ -7,4 +7,5 @@ from django.conf.urls import patterns
 urlpatterns = patterns('staticblog.views',
     (r'^$', 'archive'),
     (r'^([\-\w]+)$', 'render_post'),
+    (r'^git/receive', 'handle_hook'),
 )

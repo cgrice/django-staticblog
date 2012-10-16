@@ -3,6 +3,8 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.core.files.storage import get_storage_class
 from django.core.files.base import ContentFile
+from django.views.decorators.csrf import csrf_exempt
+
 
 def render_response(req, *args, **kwargs):
     """Shortcut to wrap request in RequestContext"""
@@ -134,4 +136,11 @@ def archive(request):
         'staticblog/archive.html', 
         {'posts' : posts}
     )
+
+@csrf_exempt
+def handle_hook(request):
+    from django.http import HttpResponse
+    from django.core.management import call_command
+    result = call_command('update_blog', verbosity = 0)
+    return HttpResponse(result)
             
