@@ -1,3 +1,5 @@
+
+==================
 Django Static Blog
 ==================
 
@@ -132,8 +134,13 @@ Template Variables
 Changelog
 ---------
 
+0.2.5 - 2012-10-16
+~~~~~~~~~~~~~~~~~~
+
+* Bugfixes for setup.py
+
 0.2.4 - 2012-10-16
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 * URL for rendering posts is no longer hardcoded to '/preview'
 * Added view to handle github post-receives and render blog

@@ -1,8 +1,6 @@
 from setuptools import setup, find_packages
 import staticblog
 
-print find_packages()
-
 setup(
     name = 'django-staticblog',
     version = staticblog.__version__,
