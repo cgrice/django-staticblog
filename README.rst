@@ -132,7 +132,7 @@ Template Variables
 Changelog
 ---------
 
-0.3 - 2012-10-16
+0.2.4 - 2012-10-16
 ~~~~~~~~~~~~~~~~
 
 * URL for rendering posts is no longer hardcoded to '/preview'
