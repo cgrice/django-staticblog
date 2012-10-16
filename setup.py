@@ -7,6 +7,7 @@ setup(
     name = 'django-staticblog',
     version = staticblog.__version__,
     packages = find_packages(),
+    long_description=open('README.rst', 'rt').read()
     install_requires = ['Markdown >= 2.0', 'html2text >= 3.0'],
     author = 'Chris Grice',
     author_email = 'chris@chrisgrice.com',
