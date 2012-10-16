@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.test.client import Client
+from django.core.urlresolvers import reverse
 
 import sys
 import os
@@ -51,7 +52,8 @@ class Command(BaseCommand):
         for post in posts:  
             if verbosity > 3:
                 print "Compiling " + post['md_name'] + " to " + post['html_name']
-            path = '/preview/' + post['path']
+            path = reverse('staticblog.views.archive') + post['path']
+            # path = '/preview/' + post['path']
             resp = client.get(path)
             if os.path.exists(outdir + post['path']) == False:
                 try:
@@ -69,7 +71,7 @@ class Command(BaseCommand):
         if verbosity > 3:
             print 'Updating listings...'
             print '----------------------------'
-        path = '/preview/'
+        path = reverse('staticblog.views.archive')
         resp = client.get(path)
 
         with open(STATICBLOG_COMPILE_DIRECTORY + 'index.html', 'w') as f:
